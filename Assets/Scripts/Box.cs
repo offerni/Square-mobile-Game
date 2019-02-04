@@ -8,10 +8,18 @@ public class Box : MonoBehaviour {
     private int waypointIndex = 0;
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] GameObject deathVFX;
+    private SceneController sceneController;
+
+    private void Start() {
+        sceneController = FindObjectOfType<SceneController>();
+    }
 
 
     void Update() {
-        Move();
+        if (!sceneController.gameIsPaused) {
+            Move();
+        }
+        
     }
 
     private void Move() {

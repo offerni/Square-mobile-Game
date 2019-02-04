@@ -5,6 +5,7 @@ using UnityEngine;
 public class Rectangles : MonoBehaviour {
 
     private bool selected;
+    private SceneController sceneController;
 
     [SerializeField] bool spawning;
     [SerializeField] Rectangle rectanglePrefab;
@@ -21,10 +22,17 @@ public class Rectangles : MonoBehaviour {
     private void Start() {
         StopAllCoroutines();
         StartCoroutine(SpawnRectangle());
-        
+        sceneController = FindObjectOfType<SceneController>();
     }
 
     void Update() {
+
+        if (sceneController.gameIsPaused) {
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        } else {
+            gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        }
+
         if (selected == true) {
             Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector2(transform.position.x, cursorPos.y);
