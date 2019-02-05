@@ -4,23 +4,33 @@ using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour {
 
-    private AudioSource musicPlayer;
+    private AudioSource audioSource;
+    [SerializeField] AudioClip[] clips;
     
     [Range(0, 1)][SerializeField] float bgmVolume = 0.80f;
 
     // Start is called before the first frame update
     void Awake() {
-        musicPlayer = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
+        audioSource.volume = bgmVolume;
         SetUpSingleton();
     }
 
     // Update is called once per frame
     void Update() {
-        
+        if(!audioSource.isPlaying) {
+            audioSource.clip = GetRandomClip();
+            audioSource.Play();
+        }
+    }
+
+    private AudioClip GetRandomClip() {
+        int clipIndex = Random.Range(0, clips.Length);
+        var clip = clips[clipIndex];
+        return clip;
     }
 
     private void SetUpSingleton() {
-        musicPlayer.volume = bgmVolume;
         var count = FindObjectsOfType<AudioSource>();
         if (count.Length > 1) {
             Destroy(gameObject);
