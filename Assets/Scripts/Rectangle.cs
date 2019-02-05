@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class Rectangle : MonoBehaviour {
 
-    [SerializeField] float speed = 11;
+    public float speed;
+    public float incrementSpeed;
     private SceneController sceneController;
 
     private void Start() {
@@ -15,7 +16,7 @@ public class Rectangle : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if(!sceneController.gameIsPaused) {
-            speed += 0.05f;
+            speed += incrementSpeed;
         }
         
         transform.Translate(Vector2.left * speed * Time.deltaTime);
@@ -25,5 +26,5 @@ public class Rectangle : MonoBehaviour {
         if (collision.gameObject.layer == 10) {
             Destroy(gameObject);
         }
-    }   
+    }
 }

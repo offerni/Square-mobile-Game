@@ -19,7 +19,6 @@ public class Box : MonoBehaviour {
         if (!sceneController.gameIsPaused) {
             Move();
         }
-        
     }
 
     private void Move() {
@@ -43,8 +42,15 @@ public class Box : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.gameObject.layer == 9) {
             var tempVFX = Instantiate(deathVFX, gameObject.transform.position, transform.rotation);
-            Destroy(gameObject);
+            transform.position = new Vector2(9999, 9999);
             Destroy(tempVFX, 2);
+            StopAllCoroutines();
+            StartCoroutine(RespawnBoxAfterSeconds());
         }
+    }
+
+    IEnumerator RespawnBoxAfterSeconds() {
+        yield return new WaitForSeconds(2.5f);
+        sceneController.RestartGame();
     }
 }
