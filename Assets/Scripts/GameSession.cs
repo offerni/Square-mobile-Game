@@ -6,9 +6,13 @@ public class GameSession : MonoBehaviour {
     private int score;
     private int bestScore;
     private int scoreAux;
+    public int deadCount = 0;
+    private AdManager adManager;
+    public int adCount;
 
     private void Awake() {
         SetUpSingleton();
+        RandomizeAdCount();
     }
 
     public int GetScore() {
@@ -43,5 +47,13 @@ public class GameSession : MonoBehaviour {
 
     public void ResetBestScore() {
         bestScore = 0;
+    }
+
+    public void ResetDeadCount() {
+        deadCount = 0;
+    }
+
+    public void RandomizeAdCount() {
+        adCount = Random.Range(4, 8);
     }
 }

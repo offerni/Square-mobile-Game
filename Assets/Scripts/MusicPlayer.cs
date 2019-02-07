@@ -38,4 +38,12 @@ public class MusicPlayer : MonoBehaviour {
             DontDestroyOnLoad(gameObject);
         }
     }
+
+    public void changeVolume(float volume) {
+        audioSource.volume = volume;
+    }
+
+    public void ToggleMusic() {
+        audioSource.mute = !audioSource.mute;
+    }
 }

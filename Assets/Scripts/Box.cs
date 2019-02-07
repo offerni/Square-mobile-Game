@@ -8,12 +8,16 @@ public class Box : MonoBehaviour {
     private int waypointIndex = 0;
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] GameObject deathVFX;
+    [SerializeField] AudioClip deathSFX;
+    [Range(0,1)][SerializeField] float deathSFXVolume = 0.75f;
     private SceneController sceneController;
+    private GameSession gameSession;
+    
 
     private void Start() {
         sceneController = FindObjectOfType<SceneController>();
+        gameSession = FindObjectOfType<GameSession>();
     }
-
 
     void Update() {
         if (!sceneController.gameIsPaused) {
@@ -33,7 +37,6 @@ public class Box : MonoBehaviour {
                 waypointIndex++;
             }
         }
-
         if(waypointIndex == 3) {
             waypointIndex = 0;
         }
@@ -41,16 +44,32 @@ public class Box : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.gameObject.layer == 9) {
-            var tempVFX = Instantiate(deathVFX, gameObject.transform.position, transform.rotation);
-            transform.position = new Vector2(9999, 9999);
-            Destroy(tempVFX, 2);
-            StopAllCoroutines();
-            StartCoroutine(RespawnBoxAfterSeconds());
+            TriggerDeath();
+            var randomCount = gameSession.adCount;
+            if (gameSession.deadCount == randomCount) {
+                StartCoroutine(ShowAdAfterSeconds());
+                gameSession.deadCount = 0;
+            } 
         }
+    }
+
+    private void TriggerDeath() {
+        var tempVFX = Instantiate(deathVFX, gameObject.transform.position, transform.rotation);
+        transform.position = new Vector2(9999, 9999);
+        Destroy(tempVFX, 2);
+        AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, deathSFXVolume);
+        StopAllCoroutines();
+        StartCoroutine(RespawnBoxAfterSeconds());
+        gameSession.deadCount++;
     }
 
     IEnumerator RespawnBoxAfterSeconds() {
         yield return new WaitForSeconds(2.5f);
         sceneController.RestartGame();
+    }
+
+    IEnumerator ShowAdAfterSeconds() {
+        yield return new WaitForSeconds(1);
+        AdManager.instance.ShowVideoAd();
     }
 }

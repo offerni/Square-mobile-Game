@@ -10,10 +10,14 @@ public class SceneController : MonoBehaviour {
     public bool gameIsPaused = false;
     private GameSession gameSession;
     private Rectangle[] rectangles;
+    private MusicPlayer musicPlayer;
 
     [SerializeField] GameObject pauseMenu;
 
-    
+
+    private void Awake() {
+        musicPlayer = FindObjectOfType<MusicPlayer>();
+    }
 
     // Start is called before the first frame update
     void Start() {
@@ -30,6 +34,8 @@ public class SceneController : MonoBehaviour {
         if (sceneName.Equals("StartScreen")) {
             gameSession.ResetScore();
             gameSession.ResetBestScore();
+            //gameSession.ResetDeadCount();
+            gameSession.RandomizeAdCount();
         }
     }
 
@@ -53,15 +59,22 @@ public class SceneController : MonoBehaviour {
         Time.timeScale = 0f;
         gameIsPaused = true;
         pauseMenu.SetActive(true);
+        musicPlayer.changeVolume(0.25f);
     }
 
     public void ResumeGame() {
         Time.timeScale = 1f;
         gameIsPaused = false;
         pauseMenu.SetActive(false);
+        musicPlayer.changeVolume(0.75f);
     }
 
     public void QuitGame() {
         Application.Quit();
+    }
+
+    public void ToggleMusic() {
+
+        musicPlayer.ToggleMusic();
     }
 }
