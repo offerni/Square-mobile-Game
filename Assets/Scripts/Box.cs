@@ -61,6 +61,7 @@ public class Box : MonoBehaviour {
         StopAllCoroutines();
         StartCoroutine(RespawnBoxAfterSeconds());
         gameSession.deadCount++;
+        gameSession.SaveScore();
     }
 
     IEnumerator RespawnBoxAfterSeconds() {

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="PlayServicesResolver.scripts.gradle-template">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Temp/PlayServicesResolverGradle/PlayServicesResolver.scripts.gradle-template.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

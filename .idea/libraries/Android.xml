@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Android">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Assets/Plugins/Android/android.arch.lifecycle.common-1.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Assets/Plugins/Android/com.android.support.support-annotations-26.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Assets/Plugins/Android/android.arch.core.common-1.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

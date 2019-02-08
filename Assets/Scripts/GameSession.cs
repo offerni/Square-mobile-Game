@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using GooglePlayGames;
+using SquareConstants;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +15,10 @@ public class GameSession : MonoBehaviour {
     private void Awake() {
         SetUpSingleton();
         RandomizeAdCount();
+    }
+
+    private void Start() {
+
     }
 
     public int GetScore() {
@@ -55,5 +61,16 @@ public class GameSession : MonoBehaviour {
 
     public void RandomizeAdCount() {
         adCount = Random.Range(4, 8);
+    }
+
+    public void SaveScore() {
+        if (Social.localUser.authenticated) {
+            // Note: make sure to add 'using GooglePlayGames'
+            Social.ReportScore(score,
+                GPGSIds.leaderboard_top_players,
+                (bool success) => {
+                    Debug.Log("(Square) Leaderboard update success: " + success);
+                });
+        }
     }
 }

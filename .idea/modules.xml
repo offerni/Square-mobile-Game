@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Assets/GooglePlayGames/Plugins/Android/GooglePlayGamesManifest.plugin/GooglePlayGamesManifest.plugin.iml" filepath="$PROJECT_DIR$/Assets/GooglePlayGames/Plugins/Android/GooglePlayGamesManifest.plugin/GooglePlayGamesManifest.plugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Temp/StagingArea/StagingArea.iml" filepath="$PROJECT_DIR$/Temp/StagingArea/StagingArea.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Temp/gradleOut/build/generated/source/buildConfig/buildConfig.iml" filepath="$PROJECT_DIR$/Temp/gradleOut/build/generated/source/buildConfig/buildConfig.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Temp/gradleOut/GooglePlayGamesManifest.plugin/build/generated/source/buildConfig/buildConfig1.iml" filepath="$PROJECT_DIR$/Temp/gradleOut/GooglePlayGamesManifest.plugin/build/generated/source/buildConfig/buildConfig1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Temp/gradleOut/GooglePlayGamesManifest.plugin/build/generated/not_namespaced_r_class_sources/release/generateReleaseRFile/generateReleaseRFile.iml" filepath="$PROJECT_DIR$/Temp/gradleOut/GooglePlayGamesManifest.plugin/build/generated/not_namespaced_r_class_sources/release/generateReleaseRFile/generateReleaseRFile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Temp/gradleOut/src/main/main.iml" filepath="$PROJECT_DIR$/Temp/gradleOut/src/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Temp/gradleOut/build/intermediates/merged_manifests/release/processReleaseManifest/merged/merged.iml" filepath="$PROJECT_DIR$/Temp/gradleOut/build/intermediates/merged_manifests/release/processReleaseManifest/merged/merged.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Temp/gradleOut/build/generated/not_namespaced_r_class_sources/release/processReleaseResources/processReleaseResources.iml" filepath="$PROJECT_DIR$/Temp/gradleOut/build/generated/not_namespaced_r_class_sources/release/processReleaseResources/processReleaseResources.iml" />
+    </modules>
+  </component>
+</project>
