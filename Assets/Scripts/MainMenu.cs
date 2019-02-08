@@ -1,5 +1,6 @@
 ﻿using GooglePlayGames;
 using GooglePlayGames.BasicApi;
+using SquareConstants;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class MainMenu : MonoBehaviour {
 
     [SerializeField] GameObject leaderBoardButton;
     void Start() {
+
         leaderBoardButton.GetComponent<Button>().interactable = false;
         // Create client configuration
         PlayGamesClientConfiguration config = new
@@ -45,5 +47,6 @@ public class MainMenu : MonoBehaviour {
         } else {
             Debug.Log("Cannot show leaderboard: not authenticated");
         }
-    }
+    }   
 }
+

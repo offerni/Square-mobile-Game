@@ -33,7 +33,7 @@ public class SceneController : MonoBehaviour {
 
         if (sceneName.Equals("StartScreen")) {
             gameSession.ResetScore();
-            gameSession.ResetBestScore();
+            gameSession.SetLeaderBoardBestScore();
             //gameSession.ResetDeadCount();
             gameSession.RandomizeAdCount();
         }

@@ -1,8 +1,11 @@
 ﻿using GooglePlayGames;
+using GooglePlayGames.BasicApi;
 using SquareConstants;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameSession : MonoBehaviour {
     private int score;
@@ -15,10 +18,6 @@ public class GameSession : MonoBehaviour {
     private void Awake() {
         SetUpSingleton();
         RandomizeAdCount();
-    }
-
-    private void Start() {
-
     }
 
     public int GetScore() {
@@ -51,7 +50,7 @@ public class GameSession : MonoBehaviour {
         }
     }
 
-    public void ResetBestScore() {
+    public void SetLeaderBoardBestScore() {
         bestScore = 0;
     }
 
@@ -60,17 +59,25 @@ public class GameSession : MonoBehaviour {
     }
 
     public void RandomizeAdCount() {
-        adCount = Random.Range(4, 8);
+        adCount = UnityEngine.Random.Range(4, 8);
     }
 
     public void SaveScore() {
         if (Social.localUser.authenticated) {
             // Note: make sure to add 'using GooglePlayGames'
-            Social.ReportScore(score,
-                GPGSIds.leaderboard_top_players,
-                (bool success) => {
-                    Debug.Log("(Square) Leaderboard update success: " + success);
-                });
+            if (SceneManager.GetActiveScene().name == "Level1") {
+                Social.ReportScore(score,
+               GPGSIds.leaderboard_top_players,
+               (bool success) => {
+                   Debug.Log("(Square) Leaderboard update success: " + success);
+               });
+            } else if (SceneManager.GetActiveScene().name == "Level2") {
+                Social.ReportScore(score,
+               GPGSIds.leaderboard_top_impossible_players,
+               (bool success) => {
+                   Debug.Log("(Square) Leaderboard update success: " + success);
+               });
+            }
         }
     }
 }

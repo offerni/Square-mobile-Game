@@ -25,6 +25,7 @@ namespace SquareConstants
 {
 public static class GPGSIds
 {
+        public const string leaderboard_top_impossible_players = "CgkIg-aMutYCEAIQAg"; // <GPGSID>
         public const string leaderboard_top_players = "CgkIg-aMutYCEAIQAQ"; // <GPGSID>
 
 }
