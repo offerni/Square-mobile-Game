@@ -25,8 +25,19 @@ namespace SquareConstants
 {
 public static class GPGSIds
 {
-        public const string leaderboard_top_impossible_players = "CgkIg-aMutYCEAIQAg"; // <GPGSID>
-        public const string leaderboard_top_players = "CgkIg-aMutYCEAIQAQ"; // <GPGSID>
+        public const string leaderboard_top_impossible_players = "CgkIg-aMutYCEAIQEQ"; // <GPGSID>
+        public const string achievement_500_points_keep_going = "CgkIg-aMutYCEAIQBA"; // <GPGSID>
+        public const string achievement_impossible_100_points = "CgkIg-aMutYCEAIQCQ"; // <GPGSID>
+        public const string achievement_impossible_300_points = "CgkIg-aMutYCEAIQDg"; // <GPGSID>
+        public const string achievement_the_longest_journey_starts_with_a_single_step = "CgkIg-aMutYCEAIQAw"; // <GPGSID>
+        public const string achievement_impossible_500_points = "CgkIg-aMutYCEAIQDA"; // <GPGSID>
+        public const string achievement_nobody_really_came_that_far = "CgkIg-aMutYCEAIQBw"; // <GPGSID>
+        public const string achievement_impossible_you_beat_the_creator_high_score = "CgkIg-aMutYCEAIQCg"; // <GPGSID>
+        public const string achievement_1000_points = "CgkIg-aMutYCEAIQBQ"; // <GPGSID>
+        public const string achievement_3000_points = "CgkIg-aMutYCEAIQBg"; // <GPGSID>
+        public const string achievement_you_should_stop_now = "CgkIg-aMutYCEAIQCw"; // <GPGSID>
+        public const string achievement_bot = "CgkIg-aMutYCEAIQCA"; // <GPGSID>
+        public const string leaderboard_top_players = "CgkIg-aMutYCEAIQEA"; // <GPGSID>
 
 }
 }

@@ -466,6 +466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deadCount: 0
+  adCount: 0
 --- !u!4 &448519894
 Transform:
   m_ObjectHideFlags: 0
@@ -1662,6 +1663,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4229572287909325288, guid: ffa37f693f1e63d41ac073f94e357a02,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 239931463}
     - target: {fileID: 6260306761889302486, guid: ffa37f693f1e63d41ac073f94e357a02,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1673,11 +1679,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 239931463}
     - target: {fileID: 6260306762197791810, guid: ffa37f693f1e63d41ac073f94e357a02,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 239931463}
-    - target: {fileID: 4229572287909325288, guid: ffa37f693f1e63d41ac073f94e357a02,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

@@ -9,9 +9,8 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour {
 
     [SerializeField] GameObject leaderBoardButton;
+    [SerializeField] GameObject achievementsButton;
     void Start() {
-
-        leaderBoardButton.GetComponent<Button>().interactable = false;
         // Create client configuration
         PlayGamesClientConfiguration config = new
             PlayGamesClientConfiguration.Builder()
@@ -24,21 +23,28 @@ public class MainMenu : MonoBehaviour {
         PlayGamesPlatform.InitializeInstance(config);
         PlayGamesPlatform.Activate();
         // END THE CODE TO PASTE INTO START
-            SignIn();
+        SignIn();
+        StopAllCoroutines();
+        StartCoroutine(CheckLoginStatus());
+
     }
 
     public void SignIn() {
         Social.localUser.Authenticate((bool success) => {
             if (success) {
                 Debug.Log("logged in");
-                leaderBoardButton.GetComponent<Button>().interactable = true;
-            }
-            else {
-                Debug.Log("fodeu de novo");
-                leaderBoardButton.GetComponent<Button>().interactable = false;
+                SocialButtonsHandler(true);
+            } else {
+                Debug.Log("loginr error");
+                SocialButtonsHandler(false);
             }
         }
         );
+    }
+
+    private void SocialButtonsHandler(bool status) {
+        leaderBoardButton.GetComponent<Button>().interactable = status;
+        achievementsButton.GetComponent<Button>().interactable = status;
     }
 
     public void ShowLeaderboards() {
@@ -47,6 +53,29 @@ public class MainMenu : MonoBehaviour {
         } else {
             Debug.Log("Cannot show leaderboard: not authenticated");
         }
-    }   
+    }
+
+    public void ShowAchievements() {
+        if (Social.localUser.authenticated) {
+            PlayGamesPlatform.Instance.ShowAchievementsUI();
+        } else {
+            Debug.Log("Cannot show leaderboard: not authenticated");
+        }
+    }
+
+    IEnumerator CheckLoginStatus() {
+        while (true) {
+            if(Social.localUser.authenticated) {
+                SocialButtonsHandler(true);
+                print("ok");
+            } else {
+                SocialButtonsHandler(false);
+                print("not ok");
+            }
+            yield return new WaitForSeconds(5);
+        }
+        
+    }
+
 }
 
