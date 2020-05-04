@@ -45,11 +45,11 @@ public class Box : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.gameObject.layer == 9) {
             TriggerDeath();
-            var randomCount = gameSession.adCount;
-            if (gameSession.deadCount == randomCount) {
-                StartCoroutine(ShowAdAfterSeconds());
-                gameSession.deadCount = 0;
-            } 
+            //var randomCount = gameSession.adCount;
+            //if (gameSession.deadCount == randomCount) {
+            //    StartCoroutine(ShowAdAfterSeconds());
+            //    gameSession.deadCount = 0;
+            //} 
         }
     }
 
@@ -60,7 +60,7 @@ public class Box : MonoBehaviour {
         AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, deathSFXVolume);
         StopAllCoroutines();
         StartCoroutine(RespawnBoxAfterSeconds());
-        gameSession.deadCount++;
+        //gameSession.deadCount++;
         gameSession.SaveScore();
     }
 
@@ -69,8 +69,8 @@ public class Box : MonoBehaviour {
         sceneController.RestartGame();
     }
 
-    IEnumerator ShowAdAfterSeconds() {
-        yield return new WaitForSeconds(1);
-        AdManager.instance.ShowVideoAd();
-    }
+    //IEnumerator ShowAdAfterSeconds() {
+    //    yield return new WaitForSeconds(1);
+    //    AdManager.instance.ShowVideoAd();
+    //}
 }

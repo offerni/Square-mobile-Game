@@ -32,10 +32,10 @@ public class MainMenu : MonoBehaviour {
     public void SignIn() {
         Social.localUser.Authenticate((bool success) => {
             if (success) {
-                Debug.Log("logged in");
+                //Debug.Log("logged in");
                 SocialButtonsHandler(true);
             } else {
-                Debug.Log("loginr error");
+                //Debug.Log("loginr error");
                 SocialButtonsHandler(false);
             }
         }
@@ -51,7 +51,7 @@ public class MainMenu : MonoBehaviour {
         if (Social.localUser.authenticated) {
             PlayGamesPlatform.Instance.ShowLeaderboardUI();
         } else {
-            Debug.Log("Cannot show leaderboard: not authenticated");
+            //Debug.Log("Cannot show leaderboard: not authenticated");
         }
     }
 
@@ -59,7 +59,7 @@ public class MainMenu : MonoBehaviour {
         if (Social.localUser.authenticated) {
             PlayGamesPlatform.Instance.ShowAchievementsUI();
         } else {
-            Debug.Log("Cannot show leaderboard: not authenticated");
+            //Debug.Log("Cannot show leaderboard: not authenticated");
         }
     }
 
@@ -67,10 +67,10 @@ public class MainMenu : MonoBehaviour {
         while (true) {
             if(Social.localUser.authenticated) {
                 SocialButtonsHandler(true);
-                print("ok");
+                //print("ok");
             } else {
                 SocialButtonsHandler(false);
-                print("not ok");
+                //print("not ok");
             }
             yield return new WaitForSeconds(5);
         }
